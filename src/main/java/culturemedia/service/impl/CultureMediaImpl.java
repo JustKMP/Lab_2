@@ -4,26 +4,36 @@ import java.util.List;
 
 import culturemedia.model.Video;
 import culturemedia.model.View;
+import culturemedia.repository.VideoRepository;
+import culturemedia.repository.ViewRepository;
 import culturemedia.service.CultureMediaService;
 
 public class CultureMediaImpl implements CultureMediaService {
 
+    private VideoRepository videoRepository;
+    private ViewRepository viewRepository;
+
+    public CultureMediaImpl(VideoRepository videoRepository, ViewRepository viewRepository){
+        this.videoRepository = videoRepository;
+        this.viewRepository = viewRepository;
+    }
+
     @Override
     public List<Video> findAllVideos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAllVideos'");
+        List<Video> videos = videoRepository.findAll();
+        return videos;
     }
 
     @Override
     public Video add(Video video) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        Video videoAdd = videoRepository.save(video);
+        return videoAdd;
     }
 
     @Override
     public View add(View view) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        View viewAdd = viewRepository.add(view);
+        return viewAdd;
     }
 
 }
