@@ -62,6 +62,4 @@ class VideoRepositoryTest {
 		assertEquals(0, videos.size());
 	}
 
-    
-
 }
