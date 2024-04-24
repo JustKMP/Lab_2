@@ -33,7 +33,7 @@ class VideoRepositoryTest {
 	}
 
 	@Test
-	public void when_FindAll_all_videos_should_be_returned_successfully() {
+	void when_FindAll_all_videos_should_be_returned_successfully() {
 		List<Video> videos = videoRepository.findAll( );
 		assertEquals(6, videos.size());
 	}
