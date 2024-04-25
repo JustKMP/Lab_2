@@ -1,14 +1,11 @@
-import java.util.List;
-
+import culturemedia.model.Video;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import culturemedia.model.Video;
-import culturemedia.repository.*;
-import culturemedia.repository.impl.VideoRepositoryImpl;
+import java.util.List;
+import culturemedia.repository.VideoRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import culturemedia.repository.impl.*;;
 class VideoRepositoryTest {
 
 	private VideoRepository videoRepository;
@@ -52,13 +49,13 @@ class VideoRepositoryTest {
 
 	@Test
 	void when_FindByTitle_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-		List<Video> videos = videoRepository.find("Falls");
+		List<Video> videos = videoRepository.find( "Fall" );
 		assertEquals(0, videos.size());
 	}
 
 	@Test
 	void when_FindByDuration_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-		List<Video> videos = videoRepository.find(1.2, 2.2);
+		List<Video> videos = videoRepository.find( 0.8, 1.3 );
 		assertEquals(0, videos.size());
 	}
 
